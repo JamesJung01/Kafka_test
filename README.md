@@ -69,5 +69,25 @@ $ bin/kafka-configs.sh --bootstrap-server my-kafka:9092 --entity-type topics --e
 
 --------------------------------------------------------------------
 
-### 
+### Producer
+$ bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic {topic_name}
+$ bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --property "parse.key=true" --property "key.separator=:"
 
+### Consumer
+$ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --from-beginning
+$ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} \ --from-beginning
+
+### Consumer groups
+$ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --property print.key=true --property key.separator="-" --group hello-group --from-beginning
+$ bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --list hello-group
+$ bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --group hello-group --describe
+
+### Verifiable producer, consumer
+$ bin/kafka-verifiable-producer.sh --bootstrap-server my-kafka:9092 --max-message 10 --topic verify-test
+$ bin/kafka-verifiable-consumer.sh --bootstrap-server my-kafka:9092 --topic verify-test --group-id test-group
+
+### Delete records
+$ vi delete-topic.json
+{"partitions":[{"topic": "test", "partition": 0, "offset": 50}], "version":1}
+
+$ bin/kafka-delete-records.sh --bootstrap-server my-kafka:9092 --offset-json-file delete-topic.json
