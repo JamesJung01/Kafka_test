@@ -32,7 +32,7 @@ $ echo $KAFKA_HEAP_OPTS
 ### Zookeeper configuration
 $ vi config/zookeeper.properties
 
-# Broker configuration
+### Broker configuration
 $ vi config/server.properties
 advertised.listeners=PLAINTEXT://my-kafka:9092
 
