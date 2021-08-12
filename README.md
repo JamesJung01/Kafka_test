@@ -34,6 +34,7 @@ $ vi config/zookeeper.properties
 
 ### Broker configuration
 $ vi config/server.properties \
+listeners=PLAINTEXT://:9092 \
 advertised.listeners=PLAINTEXT://my-kafka:9092
 
 --------------------------------------------------------------------
