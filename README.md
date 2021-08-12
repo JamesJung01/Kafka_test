@@ -75,8 +75,7 @@ $ bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic {topic_
 $ bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --property "parse.key=true" --property "key.separator=:"
 
 ### Consumer
-$ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --from-beginning \
-$ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --from-beginning
+$ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --from-beginning 
 
 ### Consumer groups
 $ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic {topic_name} --property print.key=true --property key.separator="-" --group hello-group --from-beginning \
